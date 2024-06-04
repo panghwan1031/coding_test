@@ -12,6 +12,7 @@ import java.util.HashSet;
 public class hash_03 {
     public boolean solution01(String[] phone_book) {
         HashMap<String, Integer> map = new HashMap<>();
+        boolean answer = true;
         for(String num : phone_book){
             map.put(num, 1);
         }
@@ -19,11 +20,11 @@ public class hash_03 {
         for(String num : phone_book){
             for(int i = 0; i < num.length(); i++){
                 if(map.containsKey(num.substring(0,i))){
-                    return false;
+                    answer = false;
                 }
             }
         }
-        return true;
+        return answer;
     }
 
     public boolean solution02(String[] phone_book){
