@@ -1,6 +1,6 @@
 package programmers;
 
-// 완주하지 못한 선수 문제를 해결하는 코드
+// 완주하지 못한 선수
 
 import java.util.Map;
 import java.io.BufferedWriter;
@@ -34,8 +34,8 @@ class hash_01 {
         return answer; // 완주하지 못한 참가자의 이름을 반환
 
         //keySet사용    
-        // for (String key : hm.keySet()) {
-        //     if (hm.get(key) != 0) {
+        // for (String key : hm.keySet()) {//맵의 키 집합을 순회
+        //     if (hm.get(key) != 0) {//키에 대응하는 값을 가져와서 검사
         //         answer = key; // 값이 0이 아닌 참가자의 이름을 결과로 설정
         //         break; // 결과를 찾으면 반복문을 종료
         //     }
