@@ -28,8 +28,9 @@ public class hash_05 {
         for (String g : sortedg) {
             List<int[]> songs = gs.get(g); // 현재 장르의 노래 리스트를 가져옴
             songs.sort((a, b) -> { // 노래를 재생 횟수 내림차순으로 정렬 (재생 횟수가 같으면 고유 번호 오름차순)
-                if (b[1] == a[1])
+                if (b[1] == a[1]) {
                     return a[0] - b[0];
+                }
                 return b[1] - a[1];
             });
             int count = 0; // 선택한 노래의 개수를 세기 위한 변수
