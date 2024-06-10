@@ -10,8 +10,8 @@ import java.util.StringTokenizer;
 public class boj_15649 {
     static boolean[] visit;
     static int[] arr;
-    static int m;
     static int n;
+    static int m;
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
