@@ -1,0 +1,37 @@
+package boj;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.HashSet;
+import java.util.Set;
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+public class boj_1920 {
+    public static void main(String[] args) throws IOException {
+
+        Set<Integer> set = new HashSet<>();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
+        int n = Integer.valueOf(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; i++) {
+            set.add(Integer.valueOf(st.nextToken()));
+        }
+        int m = Integer.valueOf(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < m; i++) {
+            int num = Integer.valueOf(st.nextToken());
+            if (set.contains(num)) {
+                bw.write("1\n");
+            } else {
+                bw.write("0\n");
+            }
+        }
+        bw.flush();
+        bw.close();
+    }
+}
