@@ -12,9 +12,9 @@ public class br_bw_st {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         // String s = br.readLine();
-        // int T = Integer.valueOf(br.readLine());
-        int num = Integer.valueOf(br.readLine());
-        // int n = Integer.valueOf(br.readLine());
+        // int T = Integer.parseInt(br.readLine());
+        int num = Integer.parseInt(br.readLine());
+        // int n = Integer.parseInt(br.readLine());
         int sum = 0;
         StringTokenizer st;
 
@@ -22,8 +22,8 @@ public class br_bw_st {
 
         for (int i = 0; i < num; i++) {
             st = new StringTokenizer(br.readLine());
-            int a = Integer.valueOf(st.nextToken());
-            int b = Integer.valueOf(st.nextToken());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
             sum += a + b;
         }
         bw.write(Integer.toString(sum));

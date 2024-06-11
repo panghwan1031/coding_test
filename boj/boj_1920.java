@@ -16,15 +16,15 @@ public class boj_1920 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
-        int n = Integer.valueOf(br.readLine());
+        int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            set.add(Integer.valueOf(st.nextToken()));
+            set.add(Integer.parseInt(st.nextToken()));
         }
-        int m = Integer.valueOf(br.readLine());
+        int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < m; i++) {
-            int num = Integer.valueOf(st.nextToken());
+            int num = Integer.parseInt(st.nextToken());
             if (set.contains(num)) {
                 bw.write("1\n");
             } else {
