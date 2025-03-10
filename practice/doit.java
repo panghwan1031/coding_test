@@ -40,23 +40,46 @@ public class doit {
     //     System.out.println(sum * 100.0/max/N);
     // }
 
-    public static void main(String[] args)throws IOException{
-        BufferedReader br = new BufferedReader(new  InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int suNo = Integer.parseInt(st.nextToken());
-        int qNo = Integer.parseInt(st.nextToken());
-        StringBuilder sb = new StringBuilder();
-        long[]S = new long[suNo + 1];
-        st = new StringTokenizer(br.readLine());
-        for(int i = 1; i <= suNo; i++){
-            S[i] = S[i - 1] + Integer.parseInt(st.nextToken());
+    // public static void main(String[] args)throws IOException{
+    //     BufferedReader br = new BufferedReader(new  InputStreamReader(System.in));
+    //     StringTokenizer st = new StringTokenizer(br.readLine());
+    //     int suNo = Integer.parseInt(st.nextToken());
+    //     int qNo = Integer.parseInt(st.nextToken());
+    //     StringBuilder sb = new StringBuilder();
+    //     long[]S = new long[suNo + 1];
+    //     st = new StringTokenizer(br.readLine());
+    //     for(int i = 1; i <= suNo; i++){
+    //         S[i] = S[i - 1] + Integer.parseInt(st.nextToken());
+    //     }
+    //     for(int q = 0; q < qNo; q++){
+    //         st = new StringTokenizer(br.readLine());
+    //         int i = Integer.parseInt(st.nextToken());
+    //         int j = Integer.parseInt(st.nextToken());
+    //         sb.append(S[j] - S[i - 1]).append("\n");
+    //     }
+    //     System.out.println(sb);
+    // }
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int cnt = 1;
+        int s_i = 1;
+        int e_i = 1;
+        int sum = 1;
+        while(e_i != N){
+            if(sum == N){
+                cnt++; 
+                e_i++;
+                sum = sum + e_i;
+            }else if(sum > N){
+                sum = sum - s_i;
+                s_i++;
+            }else{
+                e_i++;
+                sum = sum + e_i;
+            }
         }
-        for(int q = 0; q < qNo; q++){
-            st = new StringTokenizer(br.readLine());
-            int i = Integer.parseInt(st.nextToken());
-            int j = Integer.parseInt(st.nextToken());
-            sb.append(S[j] - S[i - 1]).append("\n");
-        }
-        System.out.println(sb);
+        System.out.println(cnt);
     }
 }
