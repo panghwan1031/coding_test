@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class doit {
     // 숫자의 합 구하기
@@ -60,26 +61,63 @@ public class doit {
     //     System.out.println(sb);
     // }
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int cnt = 1;
-        int s_i = 1;
-        int e_i = 1;
-        int sum = 1;
-        while(e_i != N){
-            if(sum == N){
-                cnt++; 
-                e_i++;
-                sum = sum + e_i;
-            }else if(sum > N){
-                sum = sum - s_i;
-                s_i++;
-            }else{
-                e_i++;
-                sum = sum + e_i;
-            }
-        }
-        System.out.println(cnt);
-    }
+    // public static void main(String[] args){
+    //     Scanner sc = new Scanner(System.in);
+    //     int N = sc.nextInt();
+    //     int cnt = 1;
+    //     int s_i = 1;
+    //     int e_i = 1;
+    //     int sum = 1;
+    //     while(e_i != N){
+    //         if(sum == N){
+    //             cnt++; 
+    //             e_i++;
+    //             sum = sum + e_i;
+    //         }else if(sum > N){
+    //             sum = sum - s_i;
+    //             s_i++;
+    //         }else{
+    //             e_i++;
+    //             sum = sum + e_i;
+    //         }
+    //     }
+    //     System.out.println(cnt);
+    // }
+
+    //주몽의 명령
+    // public static void main(String[] args)throws IOException{
+    //     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    //     int N = Integer.parseInt(br.readLine());
+    //     int M = Integer.parseInt(br.readLine());
+    //     int[] A = new int[N];
+    //     StringTokenizer st = new StringTokenizer(br.readLine());
+    //     for(int i = 0 ; i < N; i++){
+    //         A[i] = Integer.parseInt(st.nextToken());
+    //     }
+    //     Arrays.sort(A);
+    //     int cnt = 0;
+    //     int i = 0;
+    //     int j = N - 1;
+    //     while(i < j){
+    //         if(A[i] + A[j] < M) i++;
+    //         else if(A[i] + A[j] > M)j--;
+    //         else{
+    //             cnt++;
+    //             i++;
+    //             j--;
+    //         }
+    //     }
+    //     System.out.println(cnt);
+    // }
+
+    // //슬라이딩 윈도우
+    // public static void main(String[] args)throws IOException{
+    //     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    // }
+
+    //DFS
+    //재귀함수
+    //스택 자료구조 이용
+
+    
 }
