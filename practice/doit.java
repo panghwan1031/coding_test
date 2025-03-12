@@ -176,7 +176,7 @@ public class doit {
         }
         for(int[] edge : graph){
             adjList[edge[0]].add(edge[1]);
-            //adjList[edge[1]].add(edge[0]);
+            // adjList[edge[1]].add(edge[0]);
         }
         visited = new boolean[ n + 1 ];
         answer = new ArrayList<>();
@@ -216,4 +216,78 @@ public class doit {
             System.out.print(i + " ");
     }
     }
+
+    // static boolean[] v;
+    // static int[][] arr;
+    // static int cnt = 0;
+
+    // static int n, m;
+
+    // public static void main(String[] args)throws IOException{
+    //     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    //     StringTokenizer st = new StringTokenizer(br.readLine());
+    //     n = Integer.parseInt(st.nextToken());
+    //     m = Integer.parseInt(st.nextToken());
+        
+    //     arr = new int[n + 1][n + 1];
+    //     v = new boolean[n + 1];
+
+    //     for(int i = 0; i < m; i++){
+    //         st = new StringTokenizer(br.readLine());
+
+    //         int a = Integer.parseInt(st.nextToken());
+    //         int b = Integer.parseInt(st.nextToken());
+            
+    //         arr[a][b] = arr[b][a] = 1;
+    //     }
+    //     dfs(1);
+
+    //     System.out.println(cnt - 1);
+    // }
+    // public static void dfs(int start){
+    //     v[start] = true;
+    //     cnt++;
+
+    //     for(int i = 0; i <= n; i++){
+    //         if(arr[start][i] == 1 && !v[i])
+    //         dfs(i);
+    //     }
+        
+    // }
+
+    // static boolean[] v;
+    // static int[][] arr;
+    // static int cnt = 0;
+    // static int n, m;
+
+    // public static void main(String[] args) throws IOException {
+    //     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    //     StringTokenizer st = new StringTokenizer(br.readLine());
+    //     n = Integer.parseInt(st.nextToken()); // 전역 변수 사용
+    //     m = Integer.parseInt(st.nextToken()); // 전역 변수 사용
+
+    //     arr = new int[n + 1][n + 1];
+    //     v = new boolean[n + 1];
+
+    //     for (int i = 0; i < m; i++) {
+    //         st = new StringTokenizer(br.readLine());
+    //         int a = Integer.parseInt(st.nextToken());
+    //         int b = Integer.parseInt(st.nextToken());
+    //         arr[a][b] = arr[b][a] = 1;
+    //     }
+
+    //     dfs(1);
+    //     System.out.println(cnt - 1);  // 논리 확인 필요
+    // }
+
+    // public static void dfs(int start) {
+    //     v[start] = true;
+    //     cnt++;
+
+    //     for (int i = 1; i <= n; i++) { // 0이 아니라 1부터 시작
+    //         if (arr[start][i] == 1 && !v[i]) {
+    //             dfs(i);
+    //         }
+    //     }
+    // }
 }
