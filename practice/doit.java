@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.ArrayList;
 
 public class doit {
@@ -164,58 +169,58 @@ public class doit {
     // }
 
     //DFS 우선순회
-    private static ArrayList<Integer>[] adjList;
+    // private static ArrayList<Integer>[] adjList;
     
-    private static boolean[] visited;
-    private static ArrayList<Integer> answer;
+    // private static boolean[] visited;
+    // private static ArrayList<Integer> answer;
 
-    private static int[] solution(int[][] graph, int start, int n){
-        adjList = new ArrayList[n + 1];
-        for(int i = 0; i < adjList.length; i++){
-            adjList[i] = new ArrayList<>();
-        }
-        for(int[] edge : graph){
-            adjList[edge[0]].add(edge[1]);
-            // adjList[edge[1]].add(edge[0]);
-        }
-        visited = new boolean[ n + 1 ];
-        answer = new ArrayList<>();
-        dfs(start);
+    // private static int[] solution(int[][] graph, int start, int n){
+    //     adjList = new ArrayList[n + 1];
+    //     for(int i = 0; i < adjList.length; i++){
+    //         adjList[i] = new ArrayList<>();
+    //     }
+    //     for(int[] edge : graph){
+    //         adjList[edge[0]].add(edge[1]);
+    //         // adjList[edge[1]].add(edge[0]);
+    //     }
+    //     visited = new boolean[ n + 1 ];
+    //     answer = new ArrayList<>();
+    //     dfs(start);
 
-        return answer.stream().mapToInt(Integer::intValue).toArray();
-    }
+    //     return answer.stream().mapToInt(Integer::intValue).toArray();
+    // }
 
-    private static void dfs(int now){
-        visited[now] = true;
-        answer.add(now);
+    // private static void dfs(int now){
+    //     visited[now] = true;
+    //     answer.add(now);
 
-        for(int next : adjList[now]){
-            if(!visited[next])dfs(next);
-        }
-    }
+    //     for(int next : adjList[now]){
+    //         if(!visited[next])dfs(next);
+    //     }
+    // }
 
-    public static void main(String[] args){
-        int[][] graph = {
-            {1, 2},
-            {1, 3},
-            {2, 4},
-            {2, 5},
-            {3, 6},
-            {5, 6},
-            // {4, 8},
-            // {5, 9},
-            // {5, 10},
-            // {6, 11},
-            // {6, 12},
-            // {9, 13},
-            // {10, 14},
-            // {12, 15}
-        };
-        int[] result = solution(graph, 1, 6);
-        for(int i : result){
-            System.out.print(i + " ");
-    }
-    }
+    // public static void main(String[] args){
+    //     int[][] graph = {
+    //         {1, 2},
+    //         {1, 3},
+    //         {2, 4},
+    //         {2, 5},
+    //         {3, 6},
+    //         {5, 6},
+    //         // {4, 8},
+    //         // {5, 9},
+    //         // {5, 10},
+    //         // {6, 11},
+    //         // {6, 12},
+    //         // {9, 13},
+    //         // {10, 14},
+    //         // {12, 15}
+    //     };
+    //     int[] result = solution(graph, 1, 6);
+    //     for(int i : result){
+    //         System.out.print(i + " ");
+    // }
+    // }
 
     // static boolean[] v;
     // static int[][] arr;
@@ -290,4 +295,75 @@ public class doit {
     //         }
     //     }
     // }
+
+    static StringBuilder sb = new StringBuilder();
+    static List<Integer>[] adjList;
+    static boolean[] check;
+    static int[][] arr;
+    
+
+    static int node, line, start;
+
+    static Queue<Integer> q = new LinkedList<>();
+
+    public static void main(String[] args)throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        node = Integer.parseInt(st.nextToken());
+        line = Integer.parseInt(st.nextToken());
+        start = Integer.parseInt(st.nextToken());
+
+        arr = new int[node + 1][node + 1];
+        check = new boolean[node + 1];
+
+        adjList = new ArrayList[node + 1];
+        for(int i = 0; i <= node; i++){
+            adjList[i] = new ArrayList<>();
+        }
+
+
+        for(int i = 0; i < line; i++){
+            st = new StringTokenizer(br.readLine());
+
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+
+            // arr[a][b] = arr[b][a] = 1;
+            adjList[a].add(b);
+            adjList[b].add(a);            
+        }
+        dfs(start);
+        //sb.append("\n");
+        check = new boolean[node + 1];
+
+        //bfs(start);
+
+        System.out.println(sb);
+    }
+
+    // public static void dfs(int start){
+    //     check[start] = true;
+    //     sb.append(start + " ");
+    //     for(int i = 0; i <= node; i++){
+    //         if(arr[start][i] == 1 && !check[i]){
+    //             dfs(i);
+    //         }
+    //     }
+    // }
+
+    public static void dfs(int start){
+        check[start] = true;
+        sb.append(start).append(" ");
+ //Collections.sort(adjList[start]);
+ Collections.sort(adjList[start], Comparator.reverseOrder());
+        for(int next : adjList[start]){
+            if(!check[next]){
+                dfs(next);
+            }
+        }
+    }
+
+
 }
